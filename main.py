@@ -35,7 +35,7 @@ bot = Bot(token=TELEGRAM_TOKEN)
 
 async def main():
     w3 = Web3(Web3.WebsocketProvider(WSS_RPC))
-    print("🔌 Connected to Zora:", w3.isConnected())
+    print("🔌 Connected to Zora:", w3.is_connected())
 
     factory = w3.eth.contract(address=FACTORY_ADDRESS, abi=FACTORY_ABI)
     event_signature_hash = w3.keccak(text="CoinCreated(address,address,address,address,address,address,string,string,string,uint8)").hex()
@@ -76,6 +76,6 @@ async def main():
 
 # === ENTRY POINT ===
 if __name__ == "__main__":
-    bot.send_message(chat_id=TELEGRAM_CHAT_ID, text="✅ Zora Creator bot is live!", parse_mode=ParseMode.MARKDOWN)
+    await bot.send_message(chat_id=TELEGRAM_CHAT_ID, text="✅ Zora Creator bot is live!", parse_mode=ParseMode.MARKDOWN)
     asyncio.run(main())
     
