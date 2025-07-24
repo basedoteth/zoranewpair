@@ -1,0 +1,6 @@
+web3==6.10.0
+python-telegram-bot==20.6
+python-dotenv
+parsimonious==0.9.0
+eth-account==0.9.0
+setuptools<81
